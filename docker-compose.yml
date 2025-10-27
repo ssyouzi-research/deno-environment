@@ -1,0 +1,14 @@
+services:
+  code-server:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/home/vscode/workspace
+      - ./config:/home/vscode/.config
+      - ${HOME}${USERPROFILE}/.aws:/home/vscode/.aws
+    environment:
+      - AWS_PROFILE=${AWS_PROFILE:-instructor}
+    restart: unless-stopped
