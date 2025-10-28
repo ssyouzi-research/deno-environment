@@ -1,8 +1,6 @@
 services:
   code-server:
-    build:
-      context: .
-      dockerfile: dockerfile
+    image: ghcr.io/ssyouzi-research/deno-environment/deno-environment:main
     ports:
       - "8080:8080"
     volumes:
